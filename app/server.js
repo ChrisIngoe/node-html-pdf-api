@@ -12,6 +12,9 @@ const helmet = require('helmet'),
   swaggerDocument = require('./documentation/swagger.json'),
   config = require('config');
 
+// Expecting massive load to increase max listeners
+require('events').EventEmitter.defaultMaxListeners = 100;
+
 const app = express();
 const port = process.env.PORT || 3005;
 
